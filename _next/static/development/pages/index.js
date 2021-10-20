@@ -4868,7 +4868,7 @@ function useWaitForBatchToFinish() {
           case 5:
             transaction = _context6.sent;
             _context6.next = 8;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(transaction.wait(2));
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(transaction.wait(10));
 
           case 8:
             _context6.next = 13;
@@ -78488,7 +78488,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 12:
+/***/ 11:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Falverbner%2FProjects%2Fatix%2Fsovryn%2Fzero-continuos-token-gui%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************/
@@ -78533,5 +78533,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[12,"static/runtime/webpack.js"]]]);
+},[[11,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
