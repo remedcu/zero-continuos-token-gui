@@ -39,7 +39,7 @@ function trackEvent(event, options) {
 /***/ (function(module, exports) {
 
 var ENV_VARS = {
-  CHAIN_ID: ["31", '1'],
+  CHAIN_ID: ["31337", '1'],
   FORTMATIC_API_KEY: ["", ''],
   SENTRY_DSN: ["", ''],
   PORTIS_DAPP_ID: ["", ''],
@@ -115,7 +115,7 @@ var FETCH_RETRY_DELAY = 1000;
 function noop() {}
 function getEtherscanHref(transactionHash) {
   var chainId = _environment__WEBPACK_IMPORTED_MODULE_5___default()('CHAIN_ID');
-  return "https://".concat(chainId === '4' ? 'rinkeby.' : '', "etherscan.io/tx/").concat(transactionHash);
+  return "https://explorer.".concat(chainId === '31' ? 'testnet.' : '', "rsk.co/tx/").concat(transactionHash);
 }
 function bigNum(value) {
   return ethers__WEBPACK_IMPORTED_MODULE_2__["BigNumber"].from(value);

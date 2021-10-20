@@ -3924,6 +3924,17 @@ module.exports = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"_buyer
 
 /***/ }),
 
+/***/ "./lib/abi/marketMaker.json":
+/*!**********************************!*\
+  !*** ./lib/abi/marketMaker.json ***!
+  \**********************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[{\"constant\":true,\"inputs\":[],\"name\":\"hasInitialized\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_beneficiary\",\"type\":\"address\"}],\"name\":\"updateBeneficiary\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"PPM\",\"outputs\":[{\"name\":\"\",\"type\":\"uint32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"UPDATE_FORMULA_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_seller\",\"type\":\"address\"},{\"name\":\"_collateral\",\"type\":\"address\"},{\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"openSellOrder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"metaBatches\",\"outputs\":[{\"name\":\"initialized\",\"type\":\"bool\"},{\"name\":\"realSupply\",\"type\":\"uint256\"},{\"name\":\"buyFeePct\",\"type\":\"uint256\"},{\"name\":\"sellFeePct\",\"type\":\"uint256\"},{\"name\":\"formula\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_script\",\"type\":\"bytes\"}],\"name\":\"getEVMScriptExecutor\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"OPEN_BUY_ORDER_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"UPDATE_COLLATERAL_TOKEN_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getRecoveryVault\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"beneficiary\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_buyer\",\"type\":\"address\"},{\"name\":\"_collateral\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"openBuyOrder\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"UPDATE_BENEFICIARY_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"collateralsToBeClaimed\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"formula\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_seller\",\"type\":\"address\"},{\"name\":\"_batchId\",\"type\":\"uint256\"},{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"claimSellOrder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"ADD_COLLATERAL_TOKEN_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"UPDATE_FEES_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_batchId\",\"type\":\"uint256\"},{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"getBatch\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"},{\"name\":\"\",\"type\":\"bool\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint32\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"OPEN_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_buyFeePct\",\"type\":\"uint256\"},{\"name\":\"_sellFeePct\",\"type\":\"uint256\"}],\"name\":\"updateFees\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_buyer\",\"type\":\"address\"},{\"name\":\"_batchId\",\"type\":\"uint256\"},{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"claimBuyOrder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"sellFeePct\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_supply\",\"type\":\"uint256\"},{\"name\":\"_balance\",\"type\":\"uint256\"},{\"name\":\"_reserveRatio\",\"type\":\"uint32\"}],\"name\":\"getStaticPricePPM\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"allowRecoverability\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"appId\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_collateral\",\"type\":\"address\"},{\"name\":\"_virtualSupply\",\"type\":\"uint256\"},{\"name\":\"_virtualBalance\",\"type\":\"uint256\"},{\"name\":\"_reserveRatio\",\"type\":\"uint32\"},{\"name\":\"_slippage\",\"type\":\"uint256\"}],\"name\":\"updateCollateralToken\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getInitializationBlock\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_buyer\",\"type\":\"address\"},{\"name\":\"_batchId\",\"type\":\"uint256\"},{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"claimCancelledBuyOrder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"removeCollateralToken\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"tokensToBeMinted\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_token\",\"type\":\"address\"}],\"name\":\"transferToVault\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_sender\",\"type\":\"address\"},{\"name\":\"_role\",\"type\":\"bytes32\"},{\"name\":\"_params\",\"type\":\"uint256[]\"}],\"name\":\"canPerform\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getEVMScriptRegistry\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"REMOVE_COLLATERAL_TOKEN_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"batchBlocks\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"reserve\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"OPEN_SELL_ORDER_ROLE\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_formula\",\"type\":\"address\"}],\"name\":\"updateFormula\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_seller\",\"type\":\"address\"},{\"name\":\"_batchId\",\"type\":\"uint256\"},{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"claimCancelledSellOrder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isPetrified\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_kernel\",\"type\":\"address\"},{\"name\":\"_controller\",\"type\":\"address\"},{\"name\":\"_bondedToken\",\"type\":\"address\"},{\"name\":\"_formula\",\"type\":\"address\"},{\"name\":\"_reserve\",\"type\":\"address\"},{\"name\":\"_beneficiary\",\"type\":\"address\"},{\"name\":\"_batchBlocks\",\"type\":\"uint256\"},{\"name\":\"_buyFeePct\",\"type\":\"uint256\"},{\"name\":\"_sellFeePct\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"bondedToken\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getCurrentBatchId\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"collaterals\",\"outputs\":[{\"name\":\"whitelisted\",\"type\":\"bool\"},{\"name\":\"virtualSupply\",\"type\":\"uint256\"},{\"name\":\"virtualBalance\",\"type\":\"uint256\"},{\"name\":\"reserveRatio\",\"type\":\"uint32\"},{\"name\":\"slippage\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_collateral\",\"type\":\"address\"}],\"name\":\"getCollateralToken\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint32\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"controller\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"buyFeePct\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"PCT_BASE\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"open\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_collateral\",\"type\":\"address\"},{\"name\":\"_virtualSupply\",\"type\":\"uint256\"},{\"name\":\"_virtualBalance\",\"type\":\"uint256\"},{\"name\":\"_reserveRatio\",\"type\":\"uint32\"},{\"name\":\"_slippage\",\"type\":\"uint256\"}],\"name\":\"addCollateralToken\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"UpdateBeneficiary\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"formula\",\"type\":\"address\"}],\"name\":\"UpdateFormula\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"buyFeePct\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"sellFeePct\",\"type\":\"uint256\"}],\"name\":\"UpdateFees\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"supply\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"buyFeePct\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"sellFeePct\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"formula\",\"type\":\"address\"}],\"name\":\"NewMetaBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"supply\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"balance\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"reserveRatio\",\"type\":\"uint32\"},{\"indexed\":false,\"name\":\"slippage\",\"type\":\"uint256\"}],\"name\":\"NewBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"}],\"name\":\"CancelBatch\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"virtualSupply\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"virtualBalance\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"reserveRatio\",\"type\":\"uint32\"},{\"indexed\":false,\"name\":\"slippage\",\"type\":\"uint256\"}],\"name\":\"AddCollateralToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"}],\"name\":\"RemoveCollateralToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"virtualSupply\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"virtualBalance\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"reserveRatio\",\"type\":\"uint32\"},{\"indexed\":false,\"name\":\"slippage\",\"type\":\"uint256\"}],\"name\":\"UpdateCollateralToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"Open\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"fee\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"OpenBuyOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"OpenSellOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ClaimBuyOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"fee\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"ClaimSellOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"ClaimCancelledBuyOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ClaimCancelledSellOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"batchId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"collateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"totalBuySpend\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBuyReturn\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalSellSpend\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalSellReturn\",\"type\":\"uint256\"}],\"name\":\"UpdatePricing\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"executor\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"script\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"input\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"returnData\",\"type\":\"bytes\"}],\"name\":\"ScriptResult\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"vault\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"RecoverToVault\",\"type\":\"event\"}]");
+
+/***/ }),
+
 /***/ "./lib/abi/token.json":
 /*!****************************!*\
   !*** ./lib/abi/token.json ***!
@@ -4021,7 +4032,7 @@ var ABSOLUTE_FILL = "\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;
 /***/ (function(module, exports) {
 
 var ENV_VARS = {
-  CHAIN_ID: ["31", '1'],
+  CHAIN_ID: ["31337", '1'],
   FORTMATIC_API_KEY: ["", ''],
   SENTRY_DSN: ["", ''],
   PORTIS_DAPP_ID: ["", ''],
@@ -4074,6 +4085,9 @@ var _abi_token_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webp
 var _abi_bancor_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./abi/bancor.json */ "./lib/abi/bancor.json", 1);
 /* harmony import */ var _abi_fundraising_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./abi/fundraising.json */ "./lib/abi/fundraising.json");
 var _abi_fundraising_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./abi/fundraising.json */ "./lib/abi/fundraising.json", 1);
+/* harmony import */ var _abi_marketMaker_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./abi/marketMaker.json */ "./lib/abi/marketMaker.json");
+var _abi_marketMaker_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./abi/marketMaker.json */ "./lib/abi/marketMaker.json", 1);
+
 
 
 
@@ -4098,7 +4112,7 @@ var KNOWN_CONTRACTS_BY_ENV = new Map([['1', {
   FUNDRAISING: '0xf7115Ac4a90A86834E107bbc249ed64720D7d091',
   MARKET_MAKER: '0xbFa00c27d85628082c1A5aD52F09aB3F26a0B576',
   TOKEN_ANT: '0xF6892cf06F003a536fBaEB383c84095F28857405',
-  TOKEN_ANJ: '0x50A52DA9e9cCe40c474BE9a1512a657d694eA27F'
+  TOKEN_ANJ: '0x9f4904fa2612f3b6b61B0b7f75Ae27C1fCB7aADd'
 }], ['31', {
   BANCOR_FORMULA: '0x33004178476f33b6809931233C29263B36198373',
   BONDING_CURVE_TREASURY: '0x519c6f3364C2c30619a4ad361DF13a7042E958d3',
@@ -4107,7 +4121,7 @@ var KNOWN_CONTRACTS_BY_ENV = new Map([['1', {
   TOKEN_ANT: '0xf0447AEE94dd83bEA560a9F6f978bD6921734E20',
   TOKEN_ANJ: '0x6979bd7aa099c6c0566c40e5B1FC88CB96D73254'
 }]]);
-var ABIS = new Map([['TOKEN_ANT', _abi_token_json__WEBPACK_IMPORTED_MODULE_1__], ['TOKEN_ANJ', _abi_token_json__WEBPACK_IMPORTED_MODULE_1__], ['BANCOR_FORMULA', _abi_bancor_json__WEBPACK_IMPORTED_MODULE_2__], ['FUNDRAISING', _abi_fundraising_json__WEBPACK_IMPORTED_MODULE_3__]]);
+var ABIS = new Map([['TOKEN_ANT', _abi_token_json__WEBPACK_IMPORTED_MODULE_1__], ['TOKEN_ANJ', _abi_token_json__WEBPACK_IMPORTED_MODULE_1__], ['BANCOR_FORMULA', _abi_bancor_json__WEBPACK_IMPORTED_MODULE_2__], ['FUNDRAISING', _abi_fundraising_json__WEBPACK_IMPORTED_MODULE_3__], ['MARKET_MAKER', _abi_marketMaker_json__WEBPACK_IMPORTED_MODULE_4__]]);
 function getKnownAbi(name) {
   return ABIS.get(name);
 }
@@ -4161,7 +4175,7 @@ var FETCH_RETRY_DELAY = 1000;
 function noop() {}
 function getEtherscanHref(transactionHash) {
   var chainId = _environment__WEBPACK_IMPORTED_MODULE_5___default()('CHAIN_ID');
-  return "https://".concat(chainId === '4' ? 'rinkeby.' : '', "etherscan.io/tx/").concat(transactionHash);
+  return "https://explorer.".concat(chainId === '31' ? 'testnet.' : '', "rsk.co/tx/").concat(transactionHash);
 }
 function bigNum(value) {
   return ethers__WEBPACK_IMPORTED_MODULE_2__["BigNumber"].from(value);
@@ -4440,6 +4454,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _known_contracts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./known-contracts */ "./lib/known-contracts.js");
 /* harmony import */ var _wallet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./wallet */ "./lib/wallet.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils */ "./lib/utils.js");
+/* harmony import */ var delay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! delay */ "./node_modules/delay/index.js");
+/* harmony import */ var delay__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(delay__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -4452,6 +4469,12 @@ __webpack_require__.r(__webpack_exports__);
 var MAINNET_CONNECTOR_WEIGHT = 250000;
 var RINKEBY_CONNECTOR_WEIGHT = 33333;
 var RETRY_EVERY = 1000;
+var BATCH_SIZE = 10;
+
+var calculateBatchId = function calculateBatchId(blockNumber) {
+  return Math.floor(blockNumber / BATCH_SIZE) * BATCH_SIZE;
+};
+
 var connectorWeights = new Map([['MAINNET_CONNECTOR_WEIGHT', MAINNET_CONNECTOR_WEIGHT], ['RINKEBY_CONNECTOR_WEIGHT', RINKEBY_CONNECTOR_WEIGHT]]);
 var contractsCache = new Map();
 var tokenDecimals = new Map([['ANT', 18], ['ANJ', 18]]);
@@ -4788,6 +4811,7 @@ function useClaimOrder() {
   return Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function _callee4(openOrderTransactionHash) {
     var toAnj,
         _await$ethersProvider,
+        blockNumber,
         batchId,
         _args5 = arguments;
 
@@ -4811,43 +4835,41 @@ function useClaimOrder() {
 
           case 6:
             _await$ethersProvider = _context5.sent;
-            batchId = _await$ethersProvider.blockNumber;
-            _context5.next = 10;
+            blockNumber = _await$ethersProvider.blockNumber;
+            batchId = calculateBatchId(blockNumber); // We claim the buy order, with the blockNumber of the emitted open order
+
+            _context5.next = 11;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(toAnj ? fundraisingContract.claimBuyOrder(account, batchId, antAddress, {
               gasLimit: 500000
             }) : fundraisingContract.claimSellOrder(account, batchId, antAddress, {
               gasLimit: 500000
             }));
 
-          case 10:
+          case 11:
             return _context5.abrupt("return", _context5.sent);
 
-          case 13:
-            _context5.prev = 13;
+          case 14:
+            _context5.prev = 14;
             _context5.t0 = _context5["catch"](1);
             throw new Error(_context5.t0);
 
-          case 16:
+          case 17:
           case "end":
             return _context5.stop();
         }
       }
-    }, null, null, [[1, 13]], Promise);
+    }, null, null, [[1, 14]], Promise);
   }, [account, antAddress, ethersProvider, fundraisingContract]);
 }
 function useWaitForBatchToFinish() {
   var _useWalletAugmented5 = Object(_wallet__WEBPACK_IMPORTED_MODULE_6__["useWalletAugmented"])(),
-      account = _useWalletAugmented5.account,
       ethersProvider = _useWalletAugmented5.ethersProvider;
 
   var fundraisingContract = useKnownContract('FUNDRAISING');
-
-  var _getKnownContract13 = Object(_known_contracts__WEBPACK_IMPORTED_MODULE_5__["getKnownContract"])('TOKEN_ANT'),
-      _getKnownContract14 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_getKnownContract13, 1),
-      antAddress = _getKnownContract14[0];
-
+  var marketMakerContract = useKnownContract('MARKET_MAKER');
   return Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function _callee5(openOrderTransactionHash) {
-    var transaction;
+    var finished, _await$ethersProvider2, blockNumber, batchId, currentBatchId;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee5$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
@@ -4862,30 +4884,62 @@ function useWaitForBatchToFinish() {
             throw new Error('Fundraising contract error');
 
           case 3:
-            _context6.next = 5;
+            // Wait for transaction be deep enough as the batch size
+            finished = false;
+
+          case 4:
+            _context6.next = 6;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(ethersProvider.getTransaction(openOrderTransactionHash));
 
-          case 5:
-            transaction = _context6.sent;
-            _context6.next = 8;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(transaction.wait(10));
-
-          case 8:
+          case 6:
+            _await$ethersProvider2 = _context6.sent;
+            blockNumber = _await$ethersProvider2.blockNumber;
+            debugger;
+            batchId = calculateBatchId(blockNumber);
+            _context6.t0 = _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a;
             _context6.next = 13;
-            break;
-
-          case 10:
-            _context6.prev = 10;
-            _context6.t0 = _context6["catch"](0);
-            throw new Error(_context6.t0);
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(marketMakerContract.getCurrentBatchId());
 
           case 13:
+            _context6.t1 = _context6.sent;
+            _context6.next = 16;
+            return _context6.t0.awrap.call(_context6.t0, _context6.t1);
+
+          case 16:
+            currentBatchId = _context6.sent;
+            finished = batchId < currentBatchId.toNumber();
+            console.log(batchId, currentBatchId.toNumber(), finished);
+
+            if (finished) {
+              _context6.next = 22;
+              break;
+            }
+
+            _context6.next = 22;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(delay__WEBPACK_IMPORTED_MODULE_8___default()(15 * 1000));
+
+          case 22:
+            if (!finished) {
+              _context6.next = 4;
+              break;
+            }
+
+          case 23:
+            _context6.next = 28;
+            break;
+
+          case 25:
+            _context6.prev = 25;
+            _context6.t2 = _context6["catch"](0);
+            throw new Error(_context6.t2);
+
+          case 28:
           case "end":
             return _context6.stop();
         }
       }
-    }, null, null, [[0, 10]], Promise);
-  }, [account, antAddress, ethersProvider, fundraisingContract]);
+    }, null, null, [[0, 25]], Promise);
+  }, [ethersProvider, fundraisingContract, marketMakerContract]);
 }
 function useClaimOrderReceiptAmount() {
   var _useWalletAugmented6 = Object(_wallet__WEBPACK_IMPORTED_MODULE_6__["useWalletAugmented"])(),
@@ -38582,6 +38636,90 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {}
 }());
+
+
+/***/ }),
+
+/***/ "./node_modules/delay/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/delay/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// From https://github.com/sindresorhus/random-int/blob/c37741b56f76b9160b0b63dae4e9c64875128146/index.js#L13-L15
+const randomInteger = (minimum, maximum) => Math.floor((Math.random() * (maximum - minimum + 1)) + minimum);
+
+const createAbortError = () => {
+	const error = new Error('Delay aborted');
+	error.name = 'AbortError';
+	return error;
+};
+
+const createDelay = ({clearTimeout: defaultClear, setTimeout: set, willResolve}) => (ms, {value, signal} = {}) => {
+	if (signal && signal.aborted) {
+		return Promise.reject(createAbortError());
+	}
+
+	let timeoutId;
+	let settle;
+	let rejectFn;
+	const clear = defaultClear || clearTimeout;
+
+	const signalListener = () => {
+		clear(timeoutId);
+		rejectFn(createAbortError());
+	};
+
+	const cleanup = () => {
+		if (signal) {
+			signal.removeEventListener('abort', signalListener);
+		}
+	};
+
+	const delayPromise = new Promise((resolve, reject) => {
+		settle = () => {
+			cleanup();
+			if (willResolve) {
+				resolve(value);
+			} else {
+				reject(value);
+			}
+		};
+
+		rejectFn = reject;
+		timeoutId = (set || setTimeout)(settle, ms);
+	});
+
+	if (signal) {
+		signal.addEventListener('abort', signalListener, {once: true});
+	}
+
+	delayPromise.clear = () => {
+		clear(timeoutId);
+		timeoutId = null;
+		settle();
+	};
+
+	return delayPromise;
+};
+
+const createWithTimers = clearAndSet => {
+	const delay = createDelay({...clearAndSet, willResolve: true});
+	delay.reject = createDelay({...clearAndSet, willResolve: false});
+	delay.range = (minimum, maximum, options) => delay(randomInteger(minimum, maximum), options);
+	return delay;
+};
+
+const delay = createWithTimers();
+delay.createWithTimers = createWithTimers;
+
+module.exports = delay;
+// TODO: Remove this for the next major release
+module.exports.default = delay;
 
 
 /***/ }),
@@ -78488,7 +78626,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 11:
+/***/ 12:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Falverbner%2FProjects%2Fatix%2Fsovryn%2Fzero-continuos-token-gui%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************/
@@ -78533,5 +78671,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[11,"static/runtime/webpack.js"]]]);
+},[[12,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
