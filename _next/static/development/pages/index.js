@@ -1206,6 +1206,7 @@ function ManageConversion(_ref) {
       handleReturnHome = _ref.handleReturnHome;
   var openOrder = Object(lib_web3_contracts__WEBPACK_IMPORTED_MODULE_3__["useOpenOrder"])();
   var claimOrder = Object(lib_web3_contracts__WEBPACK_IMPORTED_MODULE_3__["useClaimOrder"])();
+  var waitForBatch = Object(lib_web3_contracts__WEBPACK_IMPORTED_MODULE_3__["useWaitForBatchToFinish"])();
   var claimOrderReceiptAmount = Object(lib_web3_contracts__WEBPACK_IMPORTED_MODULE_3__["useClaimOrderReceiptAmount"])();
   var changeAllowance = Object(lib_web3_contracts__WEBPACK_IMPORTED_MODULE_3__["useApprove"])();
   var getAllowance = Object(lib_web3_contracts__WEBPACK_IMPORTED_MODULE_3__["useAllowance"])();
@@ -1302,6 +1303,11 @@ function ManageConversion(_ref) {
                 onHashCreated: function onHashCreated(hash) {
                   openOrderHash = hash;
                 }
+              }]);
+              steps.push(['Wait for batch to finish', {
+                onWaitCondition: function onWaitCondition() {
+                  return waitForBatch(openOrderHash);
+                }
               }]); // And finally the claim order
 
               steps.push(['Claim order', {
@@ -1320,7 +1326,7 @@ function ManageConversion(_ref) {
                 }
               }, 900);
 
-            case 9:
+            case 10:
             case "end":
               return _context2.stop();
           }
@@ -1342,14 +1348,14 @@ function ManageConversion(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 132,
       columnNumber: 9
     }
   }) : __jsx(_StyledDiv, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
+      lineNumber: 140,
       columnNumber: 9
     }
   }, __jsx(_StyledImg, {
@@ -1358,7 +1364,7 @@ function ManageConversion(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 149,
       columnNumber: 11
     }
   })));
@@ -1787,41 +1793,55 @@ function ConvertSteps(_ref3) {
       updateStep = _useReducer[1];
 
   var attemptStepSigning = Object(react__WEBPACK_IMPORTED_MODULE_4__["useCallback"])(function _callee(stepIndex) {
-    var _steps$stepIndex$, onHashCreated, onTxCreated, onTxMined, transaction;
+    var _steps$stepIndex$, onHashCreated, onTxCreated, onTxMined, onWaitCondition, transaction;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _steps$stepIndex$ = steps[stepIndex][1], onHashCreated = _steps$stepIndex$.onHashCreated, onTxCreated = _steps$stepIndex$.onTxCreated, onTxMined = _steps$stepIndex$.onTxMined;
+            _steps$stepIndex$ = steps[stepIndex][1], onHashCreated = _steps$stepIndex$.onHashCreated, onTxCreated = _steps$stepIndex$.onTxCreated, onTxMined = _steps$stepIndex$.onTxMined, onWaitCondition = _steps$stepIndex$.onWaitCondition;
             _context.prev = 1;
             updateStep(['setActive', stepIndex]);
-            updateStep(['setStatus', stepIndex, _stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEP_WAITING"]]); // Awaiting confirmation
+            updateStep(['setStatus', stepIndex, _stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEP_WAITING"]]);
 
-            _context.next = 6;
+            if (!onTxCreated) {
+              _context.next = 17;
+              break;
+            }
+
+            _context.next = 7;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(onTxCreated());
 
-          case 6:
+          case 7:
             transaction = _context.sent;
             onHashCreated && onHashCreated(transaction.hash);
             updateStep(['setHash', stepIndex, transaction.hash]); // Mining transaction
 
             updateStep(['setStatus', stepIndex, _stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEP_WORKING"]]);
-            _context.next = 12;
+            _context.next = 13;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(transaction.wait());
 
-          case 12:
+          case 13:
             _context.t0 = onTxMined;
 
             if (!_context.t0) {
-              _context.next = 16;
+              _context.next = 17;
               break;
             }
 
-            _context.next = 16;
+            _context.next = 17;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(onTxMined(transaction.hash));
 
-          case 16:
+          case 17:
+            if (!onWaitCondition) {
+              _context.next = 20;
+              break;
+            }
+
+            _context.next = 20;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(onWaitCondition());
+
+          case 20:
             // Success
             updateStep(['setStatus', stepIndex, _stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEP_SUCCESS"]]); // Activate next step or show as completed
 
@@ -1831,11 +1851,11 @@ function ConvertSteps(_ref3) {
               setStepperStatus(_stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEPPER_SUCCESS"]);
             }
 
-            _context.next = 25;
+            _context.next = 29;
             break;
 
-          case 20:
-            _context.prev = 20;
+          case 24:
+            _context.prev = 24;
             _context.t1 = _context["catch"](1);
             // If there's a problem mining the transaction we catch it
             // and visually feedback to the user
@@ -1843,12 +1863,12 @@ function ConvertSteps(_ref3) {
             setStepperStatus(_stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEPPER_ERROR"]);
             console.error(_context.t1);
 
-          case 25:
+          case 29:
           case "end":
             return _context.stop();
         }
       }
-    }, null, null, [[1, 20]], Promise);
+    }, null, null, [[1, 24]], Promise);
   }, [steps, stepperStage]);
   var handleRetrySigning = Object(react__WEBPACK_IMPORTED_MODULE_4__["useCallback"])(function () {
     setStepperStatus(_stepper_statuses__WEBPACK_IMPORTED_MODULE_6__["STEPPER_IN_PROGRESS"]);
@@ -1864,7 +1884,7 @@ function ConvertSteps(_ref3) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113,
+        lineNumber: 121,
         columnNumber: 5
       }
     }, __jsx(_Step__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1876,14 +1896,14 @@ function ConvertSteps(_ref3) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119,
+        lineNumber: 127,
         columnNumber: 7
       }
     }), renderDivider && __jsx(_Divider__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127,
+        lineNumber: 135,
         columnNumber: 25
       }
     }));
@@ -1904,7 +1924,7 @@ function ConvertSteps(_ref3) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145,
+        lineNumber: 153,
         columnNumber: 9
       }
     }, __jsx(_StyledH, {
@@ -1912,7 +1932,7 @@ function ConvertSteps(_ref3) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 150,
+        lineNumber: 158,
         columnNumber: 11
       }
     }, __jsx(_StepperTitle__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -1923,28 +1943,28 @@ function ConvertSteps(_ref3) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 159,
+        lineNumber: 167,
         columnNumber: 13
       }
     })), stepLayoutName === 'small' && __jsx(_StyledP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 168,
+        lineNumber: 176,
         columnNumber: 13
       }
     }, stepperStage + 1, " out of ", steps.length, " transactions")),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 148,
       columnNumber: 5
     }
   }, __jsx(_StyledDiv2, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181,
+      lineNumber: 189,
       columnNumber: 7
     }
   }, __jsx(_StyledUl, {
@@ -1952,7 +1972,7 @@ function ConvertSteps(_ref3) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188,
+      lineNumber: 196,
       columnNumber: 9
     }
   }, stepLayoutName === 'small' && renderStep(stepperStage), stepLayoutName === 'large' && renderSteps())));
@@ -2422,18 +2442,19 @@ function Step(_ref) {
       lineNumber: 152,
       columnNumber: 7
     }
-  }, desc), __jsx(_StyledDiv6, {
+  }, // FIXME: Description should be properly shown
+  desc), __jsx(_StyledDiv6, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 166,
       columnNumber: 7
     }
   }, __jsx(_StyledDiv7, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173,
+      lineNumber: 176,
       columnNumber: 9
     }
   }, transactionHash && __jsx(_StyledTransactionBadge, {
@@ -2441,7 +2462,7 @@ function Step(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182,
+      lineNumber: 185,
       columnNumber: 13
     }
   }))));
@@ -4072,19 +4093,19 @@ var KNOWN_CONTRACTS_BY_ENV = new Map([['1', {
   TOKEN_ANT: '0x8cf8196c14A654dc8Aceb3cbb3dDdfd16C2b652D',
   TOKEN_ANJ: '0x1FAB7d0D028ded72195322998003F6e82cF4cFdB'
 }], ['31337', {
-  BANCOR_FORMULA: '0xF6892cf06F003a536fBaEB383c84095F28857405',
+  BANCOR_FORMULA: '0x1b25996DEa9fAAd22F361b503175C56847A41BAD',
   BONDING_CURVE_TREASURY: '0xb27fc201B41a67EeD2488534f80fdb49261afbC1',
   FUNDRAISING: '0xf7115Ac4a90A86834E107bbc249ed64720D7d091',
   MARKET_MAKER: '0xbFa00c27d85628082c1A5aD52F09aB3F26a0B576',
-  TOKEN_ANT: '0x1b25996DEa9fAAd22F361b503175C56847A41BAD',
-  TOKEN_ANJ: '0xE4a40a1d1a6aE99C0804b353a7b0c5aF793FDe99'
+  TOKEN_ANT: '0xF6892cf06F003a536fBaEB383c84095F28857405',
+  TOKEN_ANJ: '0x50A52DA9e9cCe40c474BE9a1512a657d694eA27F'
 }], ['31', {
-  BANCOR_FORMULA: '0x3a66d64b8356E8C0d4e93A892a73ddcC3F28639A',
-  BONDING_CURVE_TREASURY: '0x205a5398E7cb67fC46075e5A7Fb8A4e083e53e94',
-  FUNDRAISING: '0xEAE69A9C47dC9F288eFf195CC3E7446936591AB1',
-  MARKET_MAKER: '0x77fF0840a6035F7fd4CC98705835213Fe482Cf36',
-  TOKEN_ANT: '0x85dfD4e2d975aC61dAF0D019D22802608A591671',
-  TOKEN_ANJ: '0xb6d301f49Cac3476DB744fF5D070DEF8E692aA02'
+  BANCOR_FORMULA: '0x33004178476f33b6809931233C29263B36198373',
+  BONDING_CURVE_TREASURY: '0x519c6f3364C2c30619a4ad361DF13a7042E958d3',
+  FUNDRAISING: '0x1FD95e15bd7EB359844E61547F7D6354E9d61997',
+  MARKET_MAKER: '0x9536a2895a675BA7213Db082A04888dC3eB45C68',
+  TOKEN_ANT: '0xf0447AEE94dd83bEA560a9F6f978bD6921734E20',
+  TOKEN_ANJ: '0x6979bd7aa099c6c0566c40e5B1FC88CB96D73254'
 }]]);
 var ABIS = new Map([['TOKEN_ANT', _abi_token_json__WEBPACK_IMPORTED_MODULE_1__], ['TOKEN_ANJ', _abi_token_json__WEBPACK_IMPORTED_MODULE_1__], ['BANCOR_FORMULA', _abi_bancor_json__WEBPACK_IMPORTED_MODULE_2__], ['FUNDRAISING', _abi_fundraising_json__WEBPACK_IMPORTED_MODULE_3__]]);
 function getKnownAbi(name) {
@@ -4392,7 +4413,7 @@ function WalletProvider(_ref2) {
 /*!*******************************!*\
   !*** ./lib/web3-contracts.js ***!
   \*******************************/
-/*! exports provided: useContract, useKnownContract, useTokenDecimals, useTokenBalance, useBondingCurvePrice, useAllowance, useApprove, useOpenOrder, useClaimOrder, useClaimOrderReceiptAmount */
+/*! exports provided: useContract, useKnownContract, useTokenDecimals, useTokenBalance, useBondingCurvePrice, useAllowance, useApprove, useOpenOrder, useClaimOrder, useWaitForBatchToFinish, useClaimOrderReceiptAmount */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4406,6 +4427,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useApprove", function() { return useApprove; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useOpenOrder", function() { return useOpenOrder; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useClaimOrder", function() { return useClaimOrder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useWaitForBatchToFinish", function() { return useWaitForBatchToFinish; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useClaimOrderReceiptAmount", function() { return useClaimOrderReceiptAmount; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -4435,8 +4457,11 @@ var contractsCache = new Map();
 var tokenDecimals = new Map([['ANT', 18], ['ANJ', 18]]);
 
 function getConnectorWeight() {
-  var chainId = lib_environment__WEBPACK_IMPORTED_MODULE_4___default()('CHAIN_ID');
-  return connectorWeights.get(chainId === '1' ? 'MAINNET_CONNECTOR_WEIGHT' : 'RINKEBY_CONNECTOR_WEIGHT');
+  // FIXME: return a constant for now
+  return 400000; // const chainId = environment('CHAIN_ID')
+  // return connectorWeights.get(
+  //   chainId === '1' ? 'MAINNET_CONNECTOR_WEIGHT' : 'RINKEBY_CONNECTOR_WEIGHT'
+  // )
 }
 
 function useContract(address, abi) {
@@ -4810,37 +4835,89 @@ function useClaimOrder() {
     }, null, null, [[1, 13]], Promise);
   }, [account, antAddress, ethersProvider, fundraisingContract]);
 }
-function useClaimOrderReceiptAmount() {
+function useWaitForBatchToFinish() {
   var _useWalletAugmented5 = Object(_wallet__WEBPACK_IMPORTED_MODULE_6__["useWalletAugmented"])(),
+      account = _useWalletAugmented5.account,
       ethersProvider = _useWalletAugmented5.ethersProvider;
 
-  return Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function _callee5(hash) {
-    var abi, abiInterface, transactionReceipt, parsedTransferLog, amount;
+  var fundraisingContract = useKnownContract('FUNDRAISING');
+
+  var _getKnownContract13 = Object(_known_contracts__WEBPACK_IMPORTED_MODULE_5__["getKnownContract"])('TOKEN_ANT'),
+      _getKnownContract14 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_getKnownContract13, 1),
+      antAddress = _getKnownContract14[0];
+
+  return Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function _callee5(openOrderTransactionHash) {
+    var transaction;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee5$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
+            _context6.prev = 0;
+
+            if (fundraisingContract) {
+              _context6.next = 3;
+              break;
+            }
+
+            throw new Error('Fundraising contract error');
+
+          case 3:
+            _context6.next = 5;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(ethersProvider.getTransaction(openOrderTransactionHash));
+
+          case 5:
+            transaction = _context6.sent;
+            _context6.next = 8;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(transaction.wait(2));
+
+          case 8:
+            _context6.next = 13;
+            break;
+
+          case 10:
+            _context6.prev = 10;
+            _context6.t0 = _context6["catch"](0);
+            throw new Error(_context6.t0);
+
+          case 13:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, null, null, [[0, 10]], Promise);
+  }, [account, antAddress, ethersProvider, fundraisingContract]);
+}
+function useClaimOrderReceiptAmount() {
+  var _useWalletAugmented6 = Object(_wallet__WEBPACK_IMPORTED_MODULE_6__["useWalletAugmented"])(),
+      ethersProvider = _useWalletAugmented6.ethersProvider;
+
+  return Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function _callee6(hash) {
+    var abi, abiInterface, transactionReceipt, parsedTransferLog, amount;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee6$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
             abi = Object(_known_contracts__WEBPACK_IMPORTED_MODULE_5__["getKnownAbi"])('TOKEN_ANT');
             abiInterface = new ethers__WEBPACK_IMPORTED_MODULE_3__["utils"].Interface(abi);
-            _context6.prev = 2;
-            _context6.next = 5;
+            _context7.prev = 2;
+            _context7.next = 5;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(ethersProvider.getTransactionReceipt(hash));
 
           case 5:
-            transactionReceipt = _context6.sent;
+            transactionReceipt = _context7.sent;
             parsedTransferLog = abiInterface.parseLog(transactionReceipt.logs[0]);
             console.log(transactionReceipt, parsedTransferLog);
             amount = parsedTransferLog.args.amount;
-            return _context6.abrupt("return", amount ? Object(_utils__WEBPACK_IMPORTED_MODULE_7__["bigNum"])(amount) : null);
+            return _context7.abrupt("return", amount ? Object(_utils__WEBPACK_IMPORTED_MODULE_7__["bigNum"])(amount) : null);
 
           case 12:
-            _context6.prev = 12;
-            _context6.t0 = _context6["catch"](2);
-            throw new Error(_context6.t0);
+            _context7.prev = 12;
+            _context7.t0 = _context7["catch"](2);
+            throw new Error(_context7.t0);
 
           case 15:
           case "end":
-            return _context6.stop();
+            return _context7.stop();
         }
       }
     }, null, null, [[2, 12]], Promise);
@@ -78411,7 +78488,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 11:
+/***/ 12:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Falverbner%2FProjects%2Fatix%2Fsovryn%2Fzero-continuos-token-gui%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************/
@@ -78456,5 +78533,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[11,"static/runtime/webpack.js"]]]);
+},[[12,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
