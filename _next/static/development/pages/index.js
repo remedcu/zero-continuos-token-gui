@@ -3939,10 +3939,10 @@ module.exports = JSON.parse("[{\"constant\":true,\"inputs\":[],\"name\":\"hasIni
 /*!****************************!*\
   !*** ./lib/abi/token.json ***!
   \****************************/
-/*! exports provided: 0, 1, 2, 3, 4, 5, default */
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"name\":\"remaining\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"balance\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_spender\",\"type\":\"address\"},{\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"type\":\"function\"}]");
+module.exports = JSON.parse("[{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_spender\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_from\",\"type\":\"address\"},{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_who\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_owner\",\"type\":\"address\"},{\"name\":\"_spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_name\",\"type\":\"string\"},{\"name\":\"_symbol\",\"type\":\"string\"},{\"name\":\"_decimals\",\"type\":\"uint8\"},{\"name\":\"_initialAmount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"minter\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Mint\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"burner\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Burn\",\"type\":\"event\"}]");
 
 /***/ }),
 
@@ -4549,10 +4549,7 @@ function useTokenBalance(symbol) {
 
     var requestedAddress = address || account;
     tokenContract.balanceOf(requestedAddress).then(function (balance) {
-      console.log("".concat(requestedAddress, " ").concat(balance));
-
       if (!cancelled) {
-        console.log("The recipient ".concat(requestedAddress, " owns ").concat(tokenContract.address, " ").concat(balance.toString()));
         setBalance(balance);
       }
     });
@@ -4894,88 +4891,96 @@ function useWaitForBatchToFinish() {
           case 6:
             _await$ethersProvider2 = _context6.sent;
             blockNumber = _await$ethersProvider2.blockNumber;
-            debugger;
             batchId = calculateBatchId(blockNumber);
             _context6.t0 = _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a;
-            _context6.next = 13;
+            _context6.next = 12;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(marketMakerContract.getCurrentBatchId());
 
-          case 13:
+          case 12:
             _context6.t1 = _context6.sent;
-            _context6.next = 16;
+            _context6.next = 15;
             return _context6.t0.awrap.call(_context6.t0, _context6.t1);
 
-          case 16:
+          case 15:
             currentBatchId = _context6.sent;
             finished = batchId < currentBatchId.toNumber();
-            console.log(batchId, currentBatchId.toNumber(), finished);
 
             if (finished) {
-              _context6.next = 22;
+              _context6.next = 20;
               break;
             }
 
-            _context6.next = 22;
+            _context6.next = 20;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(delay__WEBPACK_IMPORTED_MODULE_8___default()(15 * 1000));
 
-          case 22:
+          case 20:
             if (!finished) {
               _context6.next = 4;
               break;
             }
 
-          case 23:
-            _context6.next = 28;
+          case 21:
+            _context6.next = 26;
             break;
 
-          case 25:
-            _context6.prev = 25;
+          case 23:
+            _context6.prev = 23;
             _context6.t2 = _context6["catch"](0);
             throw new Error(_context6.t2);
 
-          case 28:
+          case 26:
           case "end":
             return _context6.stop();
         }
       }
-    }, null, null, [[0, 25]], Promise);
+    }, null, null, [[0, 23]], Promise);
   }, [ethersProvider, fundraisingContract, marketMakerContract]);
 }
 function useClaimOrderReceiptAmount() {
   var _useWalletAugmented6 = Object(_wallet__WEBPACK_IMPORTED_MODULE_6__["useWalletAugmented"])(),
-      ethersProvider = _useWalletAugmented6.ethersProvider;
+      ethersProvider = _useWalletAugmented6.ethersProvider,
+      account = _useWalletAugmented6.account;
 
   return Object(react__WEBPACK_IMPORTED_MODULE_2__["useCallback"])(function _callee6(hash) {
-    var abi, abiInterface, transactionReceipt, parsedTransferLog, amount;
+    var abi, _getKnownContract13, _getKnownContract14, antAddress, _getKnownContract15, _getKnownContract16, anjAddress, abiInterface, transactionReceipt, _transactionReceipt$l, _transactionReceipt$l2, parsedTransferLog, amount;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee6$(_context7) {
       while (1) {
         switch (_context7.prev = _context7.next) {
           case 0:
             abi = Object(_known_contracts__WEBPACK_IMPORTED_MODULE_5__["getKnownAbi"])('TOKEN_ANT');
+            _getKnownContract13 = Object(_known_contracts__WEBPACK_IMPORTED_MODULE_5__["getKnownContract"])('TOKEN_ANT'), _getKnownContract14 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_getKnownContract13, 1), antAddress = _getKnownContract14[0];
+            _getKnownContract15 = Object(_known_contracts__WEBPACK_IMPORTED_MODULE_5__["getKnownContract"])('TOKEN_ANJ'), _getKnownContract16 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_getKnownContract15, 1), anjAddress = _getKnownContract16[0];
             abiInterface = new ethers__WEBPACK_IMPORTED_MODULE_3__["utils"].Interface(abi);
-            _context7.prev = 2;
-            _context7.next = 5;
+            _context7.prev = 4;
+            _context7.next = 7;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(ethersProvider.getTransactionReceipt(hash));
 
-          case 5:
+          case 7:
             transactionReceipt = _context7.sent;
-            parsedTransferLog = abiInterface.parseLog(transactionReceipt.logs[0]);
-            console.log(transactionReceipt, parsedTransferLog);
-            amount = parsedTransferLog.args.amount;
-            return _context7.abrupt("return", amount ? Object(_utils__WEBPACK_IMPORTED_MODULE_7__["bigNum"])(amount) : null);
+            debugger;
+            _transactionReceipt$l = transactionReceipt.logs.filter(function (log) {
+              return log.address === antAddress || log.address === anjAddress;
+            }).map(function (log) {
+              return abiInterface.parseLog(log);
+            }).filter(function (log) {
+              return log.args[1] === account;
+            }), _transactionReceipt$l2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_transactionReceipt$l, 1), parsedTransferLog = _transactionReceipt$l2[0];
+            amount = parsedTransferLog.args.value;
+            return _context7.abrupt("return", amount ? amount : null);
 
-          case 12:
-            _context7.prev = 12;
-            _context7.t0 = _context7["catch"](2);
+          case 14:
+            _context7.prev = 14;
+            _context7.t0 = _context7["catch"](4);
             throw new Error(_context7.t0);
 
-          case 15:
+          case 17:
           case "end":
             return _context7.stop();
         }
       }
-    }, null, null, [[2, 12]], Promise);
-  }, [ethersProvider]);
+    }, null, null, [[4, 14]], Promise);
+  }, [ethersProvider, account]);
 }
 
 /***/ }),
@@ -78626,7 +78631,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 12:
+/***/ 11:
 /*!*************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Falverbner%2FProjects%2Fatix%2Fsovryn%2Fzero-continuos-token-gui%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************************************/
@@ -78671,5 +78676,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[12,"static/runtime/webpack.js"]]]);
+},[[11,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
